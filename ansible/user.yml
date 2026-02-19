@@ -1,0 +1,9 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create deploy user
+      user:
+        name: deploy
+        groups: sudo
+        append: yes
+        shell: /bin/bash
