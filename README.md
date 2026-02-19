@@ -1,8 +1,10 @@
 Contexte 
+
 Le but de ce premier Cas avait pour objectif de mettre une approche IaaC en utilisant Terraform et Ansible afin d'automatiser la creation et configuration de Notre Infras
 Notre environnement utilise un Hyperviseur Proxmox.
 
 I. Terraform
+
 Terraform a été utilisé ici pour automatiser la création de nos ressources suivantes:
 - Le Clonage d'une template linux sur Proxmox
 - Creation de deux machines virtuelles:
@@ -13,6 +15,7 @@ Terraform a été utilisé ici pour automatiser la création de nos ressources s
 Il permet donc de garantir la reproductiblité de l'Infra
 
 II. Ansible 
+
 Lui il sert a configurer les machines créees par Terraform
 il a permis : 
 * de créer un user deploy pour nos 2 Vms
