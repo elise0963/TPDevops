@@ -38,3 +38,16 @@ resource "proxmox_vm_qemu" "db" {
 
   ipconfig0 = "ip=dhcp"
 }
+
+resource "null_resource" "ansible_provision" {
+
+  provisioner "local-exec" {
+    command = "sleep 60 && cd ../ansible && ansible-playbook -i inventory.ini site.yml -u claire --ask-pass --ask-become-pass"
+  }
+
+  depends_on = [
+    proxmox_vm_qemu.web,
+    proxmox_vm_qemu.db,
+    local_file.ansible_inventory
+  ]
+}

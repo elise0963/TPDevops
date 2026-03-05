@@ -1,0 +1,11 @@
+resource "local_file" "ansible_inventory" {
+  content = <<EOF
+[web]
+192.168.1.7 db_ip=192.168.1.14
+
+[db]
+192.168.1.14
+EOF
+
+  filename = "../ansible/inventory.ini"
+}
